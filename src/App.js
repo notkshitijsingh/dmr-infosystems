@@ -1,4 +1,7 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
+
+import productsData from './productsData';
+import servicesData from './servicesData';
 
 import Stock from './assets/graph.jpg';
 import Logo from './assets/dmr-logo.png';
@@ -14,12 +17,44 @@ function App() {
   // product component
   function Product({data}){
     return(
-      <div>
-        <span>{data.name}</span>
-        <span>{data.description}</span>
+      <div className="card">
+        <span className="card-title">{data.name}</span><br/><br/>
+        <span className="card-desc">{data.description}</span>
       </div>
     );
   }
+
+  function ProductList() {
+    return (
+      <div className="card-container">
+        {productsData.map((item, index) => (
+          <Product key={index} data={item} />
+        ))}
+      </div>
+    );
+  }
+
+  function ServiceCard({ name, description }) {
+    return (
+      <div className="service-card">
+        <h2>{name}</h2>
+        <p>{description}</p>
+      </div>
+    );
+  }
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    const nextCard = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === servicesData.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+  
+    const prevCard = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? servicesData.length - 1 : prevIndex - 1
+      );
+    };
 
   // app render
   return (
@@ -57,10 +92,14 @@ function App() {
         </h3>
         <img src={Stock} alt="Stock" style={{width: "100vw", height: "78vh"}}/>
         <div className="products-page" ref={productsRef}>
-          a
+          <span className="section-title">Products</span>
+          <ProductList/>
         </div>
         <div className="services-page" ref={servicesRef}>
-          a
+        <span className="section-title">Services</span>
+          <button className="directionBtn" onClick={prevCard}>↑</button>
+          <ServiceCard {...servicesData[currentIndex]}/>
+          <button className="directionBtn" onClick={nextCard}>↓</button>
         </div>
         <div className="aboutus-page" ref={aboutusRef}>
           a
