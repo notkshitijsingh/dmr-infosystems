@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import './Form.css';
 
 const Form = () => {
   const [form, setForm] = useState({
     name: '',
     mobile: '',
+    email: '',
     option: '',
     complaint: '',
     appointment: ''
@@ -22,7 +24,7 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <label>
         Name:
         <input type="text" name="name" onChange={handleChange} />
@@ -30,6 +32,10 @@ const Form = () => {
       <label>
         Mobile:
         <input type="tel" name="mobile" onChange={handleChange} />
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" onChange={handleChange} />
       </label>
       <label>
         Option:
@@ -42,7 +48,7 @@ const Form = () => {
       {form.option === 'complaint' && (
         <label>
           Complaint:
-          <textarea name="complaint" onChange={handleChange} />
+          <textarea name="complaint" onChange={handleChange} className="complaint" />
         </label>
       )}
       {form.option === 'appointment' && (
