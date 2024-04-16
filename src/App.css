@@ -2,15 +2,18 @@
   display: flex;
   overflow-x: hidden;
   height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   flex-direction: column;
 }
 
 .navbar {
+  z-index: 2;
+  background-color: white;
+  position: fixed;
   display: flex;
   align-items: center;
   padding: 15px;
-  height: fit-content;
+  height: 8vh;
   width: 100vw;
 }
 
@@ -38,4 +41,11 @@
   background-color: #f7a92f;
   transition: 300ms;
   cursor: pointer;
+}
+
+.quote {
+  width: 100%;
+  margin-top: 15vh;
+  word-wrap:normal;
+  padding-left: 25px;
 }
