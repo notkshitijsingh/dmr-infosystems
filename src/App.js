@@ -7,6 +7,8 @@ import Stock from './assets/graph.jpg';
 import Logo from './assets/dmr-logo.png';
 import './App.css';
 
+import AboutUs from './aboutus';
+
 function App() {
   // reference variables for scroll
   const homeRef = useRef();
@@ -102,7 +104,7 @@ function App() {
           <button className="directionBtn" onClick={nextCard}>↓</button>
         </div>
         <div className="aboutus-page" ref={aboutusRef}>
-          a
+          <AboutUs />
         </div>
     </div>
   );
