@@ -107,7 +107,17 @@
 }
 
 .directionBtn {
-  border-radius: 100%;
+  border-radius: 65%;
+  color: #ffffff;
+  background-color: #1a8488;
+  font-weight:900;
+  font-size: 200%;
+  text-align: center;
+  padding-inline: 0.8%;
+  padding-bottom: 0.5%;
+}
+
+.directionBtn:hover{
   color: #1a8488;
   background-color: #f7a92f;
 }

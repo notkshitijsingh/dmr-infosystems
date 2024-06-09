@@ -7,7 +7,7 @@ import Stock from './assets/graph.jpg';
 import Logo from './assets/dmr-logo.png';
 import './App.css';
 
-import AboutUs from './aboutus';
+import AboutUs from './AboutUs';
 
 function App() {
   // reference variables for scroll
@@ -99,9 +99,9 @@ function App() {
         </div>
         <div className="services-page" ref={servicesRef}>
         <span className="section-title">Services</span>
-          <button className="directionBtn" onClick={prevCard}>↑</button>
+          <button className="directionBtn" onClick={prevCard}>→</button>
           <ServiceCard {...servicesData[currentIndex]}/>
-          <button className="directionBtn" onClick={nextCard}>↓</button>
+          <button className="directionBtn" onClick={nextCard}>←</button>
         </div>
         <div className="aboutus-page" ref={aboutusRef}>
           <AboutUs />
